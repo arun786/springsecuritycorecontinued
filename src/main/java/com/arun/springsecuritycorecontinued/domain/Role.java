@@ -21,6 +21,9 @@ public class Role {
 
     private String name;
 
+    @ManyToMany(mappedBy = "roles")
+    private Set<UserDomain> users;
+
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "role_authority",
             joinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")},

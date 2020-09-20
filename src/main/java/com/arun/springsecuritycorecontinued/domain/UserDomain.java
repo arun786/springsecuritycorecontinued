@@ -2,6 +2,7 @@ package com.arun.springsecuritycorecontinued.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Singular;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -14,14 +15,15 @@ import java.util.stream.Collectors;
 @Entity(name = "user")
 @Getter
 @Setter
-public class User {
+public class UserDomain {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String username;
     private String password;
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @Singular
+    @ManyToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
             joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
             inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
