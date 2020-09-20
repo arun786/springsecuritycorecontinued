@@ -5,6 +5,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @author arun on 9/18/20
@@ -28,6 +29,10 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
         http.headers().frameOptions().sameOrigin();
+    }
+
+    public PasswordEncoder passwordEncoder() {
+        return StudentPasswordEncoderFactory.createDelegatingPasswordEncoder();
     }
 
 }
