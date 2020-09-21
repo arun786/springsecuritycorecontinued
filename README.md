@@ -245,6 +245,8 @@ The below defined in controller
 
 we can also annotate using
 
+For Create
+
     package com.arun.springsecuritycorecontinued.annotation;
     
     import org.springframework.security.access.prepost.PreAuthorize;
@@ -262,6 +264,7 @@ we can also annotate using
     }
 
 
+For Read
 
     package com.arun.springsecuritycorecontinued.annotation;
     
@@ -280,6 +283,8 @@ we can also annotate using
     }
 
 
+For Update
+
     package com.arun.springsecuritycorecontinued.annotation;
     
     import org.springframework.security.access.prepost.PreAuthorize;
@@ -296,6 +301,7 @@ we can also annotate using
     public @interface StudentUpdateOnly {
     }
 
+For Delete
 
     package com.arun.springsecuritycorecontinued.annotation;
     
