@@ -2,6 +2,7 @@ package com.arun.springsecuritycorecontinued.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Singular;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -21,9 +22,10 @@ public class Role {
 
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
     private Set<UserDomain> users;
 
+    @Singular
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "role_authority",
             joinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")},

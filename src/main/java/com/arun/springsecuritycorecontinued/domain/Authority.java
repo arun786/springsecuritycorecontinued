@@ -20,6 +20,6 @@ public class Authority {
     private Integer id;
     private String permission;
 
-    @ManyToMany(mappedBy = "authorities")
+    @ManyToMany(mappedBy = "authorities", fetch = FetchType.EAGER)
     private Set<Role> roles;
 }

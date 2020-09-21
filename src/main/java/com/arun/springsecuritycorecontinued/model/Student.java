@@ -1,5 +1,6 @@
 package com.arun.springsecuritycorecontinued.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Student {
+    @JsonIgnore
     private Integer id;
     private String name;
     private String standard;

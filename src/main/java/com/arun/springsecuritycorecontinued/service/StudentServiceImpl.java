@@ -37,4 +37,24 @@ public class StudentServiceImpl implements StudentService {
         });
         return students;
     }
+
+    @Override
+    public Student updateStudent(Student student) {
+        StudentDomain studentDomain = studentMapper.studentToStudentDomain(student);
+        StudentDomain save = studentRepository.save(studentDomain);
+        return studentMapper.studentDomainToStudent(save);
+    }
+
+    @Override
+    public void deleteStudent(Student student) {
+        StudentDomain studentDomain = studentMapper.studentToStudentDomain(student);
+        studentRepository.delete(studentDomain);
+    }
+
+    @Override
+    public Student createStudent(Student student) {
+        StudentDomain studentDomain = studentMapper.studentToStudentDomain(student);
+        StudentDomain save = studentRepository.save(studentDomain);
+        return studentMapper.studentDomainToStudent(save);
+    }
 }
