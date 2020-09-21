@@ -57,4 +57,16 @@ public class StudentServiceImpl implements StudentService {
         StudentDomain save = studentRepository.save(studentDomain);
         return studentMapper.studentDomainToStudent(save);
     }
+
+    @Override
+    public List<Student> getAllStudent() {
+        Iterable<StudentDomain> studentDomains = studentRepository.findAll();
+
+        List<Student> students = new ArrayList<>();
+        studentDomains.forEach(studentDomain -> {
+            Student student = studentMapper.studentDomainToStudent(studentDomain);
+            students.add(student);
+        });
+        return students;
+    }
 }

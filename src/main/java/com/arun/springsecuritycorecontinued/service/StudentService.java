@@ -17,4 +17,6 @@ public interface StudentService {
     void deleteStudent(Student student);
 
     Student createStudent(Student student);
+
+    List<Student> getAllStudent();
 }

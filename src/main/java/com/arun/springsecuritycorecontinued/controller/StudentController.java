@@ -57,4 +57,12 @@ public class StudentController {
         return ResponseEntity.ok(updatedStudent);
     }
 
+
+    @StudentReadOnly
+    @GetMapping("/v2/student")
+    public ResponseEntity<List<Student>> getAllStudent() {
+        List<Student> student = studentService.getAllStudent();
+        return ResponseEntity.ok(student);
+    }
+
 }
